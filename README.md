@@ -13,3 +13,7 @@ Dopo aver calcolato il colore in sequenza RGB di ogni pixel ne viene fatta la so
 
 # Consigli 
 Per l'utilizzo di questo programma consiglio vivamente di rimuovere alcune texture Minecraft di blocchi più piccoli o incompleti come funghi, erba, fiori ed altro. Nella versione pre-compilata disponibile in Release ho già aggiunto le textures base di Minecraft 1.8.9 ma ovviamente si possono aggiungere ancora più textures compresi gli assets delle versioni più moderne di Minecraft. **IMPORTANTE: LE TEXTURE DEVONO ESSERE PERÒ SEMPRE IN RISOLUZIONE 16x16**
+
+Per cambiare le textures manualmente puoi scaricare il file .jar pre-compilato, estrarlo come file zip e cambiare i file nella cartella *assets*. Infine si ricrea il .jar facendo la compressione della cartella *Assets*, *META-INF* e i file .class
+
+Per ricompilare il tutto a mano si deve scaricare la repository da GitHub e compilare il Main.java usando il comando da Prompt: *javac --release 8 Main.java* //Attenzione: È necessario avere installato il Developer Kit Java
