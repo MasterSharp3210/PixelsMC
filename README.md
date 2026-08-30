@@ -2,7 +2,7 @@
 An App to convert any pixels from your image in Minecraft's textures pixelated picture
 
 # Come usare
-Innanzitutto è necessario installare Java 8 o una versione successiva. Dopo, puoi tranquillamente aprire un terminale nella directory del file .jar e si qualsiasi sistema operativo si vuole eseguire il file basta fare il seguente comando '''java -jar PixelsMC.jar'''.
+Innanzitutto è necessario installare Java 8 o una versione successiva. Dopo, puoi tranquillamente aprire un terminale nella directory del file .jar e si qualsiasi sistema operativo si vuole eseguire il file basta fare il seguente comando 'java -jar PixelsMC.jar'.
 
 # Come funziona
 Come molti sanno, i computer non calcolano come gli umani la luce e il colore. il cosiddetto "RGB" o "ARGB" può essere interpretato come un punto nello spazio e per calcolare la media del punto luce in un pixel è necessario implementare un algoritmo chiamato **"Norma Euclidea"**. Questa sfrutta il teorema di Pitagora per trattare il pixel comeuno spazio cubo di cui è necessario calcolare il punto centrale. Per calcolarlo si ricorre alla seguente formula: √ r² + b² + g² . 
