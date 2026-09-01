@@ -42,7 +42,7 @@ public class Main {
                 return;
             }
 
-            List<BlockData> blocks = loadBlockTextures("assets/");
+            List<BlockData> blocks = loadBlockTextures("assets");
             if (blocks.isEmpty()) {
                 System.out.println("No textures found in assets directory...");
                 return;
