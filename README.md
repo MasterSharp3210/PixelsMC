@@ -21,4 +21,4 @@ Per cambiare le textures manualmente puoi scaricare il file .jar pre-compilato, 
 Per ricompilare il tutto a mano si deve scaricare la repository da GitHub e compilare il Main.java usando il comando da Prompt: "*javac --release 8 Main.java*" //Attenzione: È necessario avere installato il Developer Kit Java
 
 # Prossimi updates
-E previsto un aggiornamento che introduce anche l'implementazione della luce e saturazione textures nella foto. Rimanete aggiornati
+E previsto un aggiornamento che introduce anche l'implementazione della luce e saturazione textures nella foto. Rimanete aggiornati e seguite il profilo per maggiori dettagli
