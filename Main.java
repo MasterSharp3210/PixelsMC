@@ -80,7 +80,8 @@ public class Main {
                     int b = argb & 0xFF;
 
                     BlockData bestBlock = findClosestBlock(r, g, b, blocks);
-                    g2d.drawImage(bestBlock.texture, x * tileSize, y * tileSize, tileSize, tileSize, null);
+                    BufferedImage adjustedTexture = adjustTextureHSV(bestBlock.texture, r, g, b, bestBlock);
+                    g2d.drawImage(adjustedTexture, x * tileSize, y * tileSize, tileSize, tileSize, null);
                 }
             }
 
@@ -150,5 +151,48 @@ public class Main {
             }
         }
         return bestMatch;
+    }
+
+    private static BufferedImage adjustTextureHSV(BufferedImage original, int targetR, int targetG, int targetB, BlockData block) {
+        float[] targetHSV = Color.RGBtoHSB(targetR, targetG, targetB, null);
+        float[] blockHSV = Color.RGBtoHSB(block.avgR, block.avgG, block.avgB, null);
+
+        float hueShift = targetHSV[0] - blockHSV[0];
+        float satScale = blockHSV[1] > 0.001f ? targetHSV[1] / blockHSV[1] : 1.0f;
+        float valScale = blockHSV[2] > 0.001f ? targetHSV[2] / blockHSV[2] : 1.0f;
+
+        int width = original.getWidth();
+        int height = original.getHeight();
+        BufferedImage adjusted = new BufferedImage(width, height, BufferedImage.TYPE_INT_ARGB);
+        float[] pixelHSV = new float[3];
+
+        for (int x = 0; x < width; x++) {
+            for (int y = 0; y < height; y++) {
+                int argb = original.getRGB(x, y);
+                int a = (argb >> 24) & 0xFF;
+                if (a == 0) {
+                    adjusted.setRGB(x, y, 0);
+                    continue;
+                }
+
+                int pr = (argb >> 16) & 0xFF;
+                int pg = (argb >> 8) & 0xFF;
+                int pb = argb & 0xFF;
+
+                Color.RGBtoHSB(pr, pg, pb, pixelHSV);
+
+                float h = pixelHSV[0] + hueShift;
+                while (h < 0) h += 1.0f;
+                while (h > 1.0f) h -= 1.0f;
+
+                float s = Math.min(1.0f, Math.max(0.0f, pixelHSV[1] * satScale));
+                float v = Math.min(1.0f, Math.max(0.0f, pixelHSV[2] * valScale));
+
+                int newRgb = Color.HSBtoRGB(h, s, v);
+                int finalArgb = (a << 24) | (newRgb & 0x00FFFFFF);
+                adjusted.setRGB(x, y, finalArgb);
+            }
+        }
+        return adjusted;
     }
 }
