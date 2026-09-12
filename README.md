@@ -18,7 +18,7 @@ Per l'utilizzo di questo programma consiglio vivamente di rimuovere alcune textu
 
 Per cambiare le textures manualmente puoi scaricare il file .jar pre-compilato, estrarlo come file zip e cambiare i file nella cartella *assets*. Infine si ricrea il .jar facendo la compressione della cartella *Assets*, *META-INF* e i file *.class*
 
-Per ricompilare il tutto a mano si deve scaricare la repository da GitHub e compilare il Main.java usando il comando da Prompt mettendo nella cartella out/assets gli assets che vuoi: "*javac --release 8 -d out Main.java*" //Attenzione: È necessario avere installato il Developer Kit Java
+Per ricompilare il tutto a mano si deve scaricare la repository da GitHub e compilare il Main.java usando il comando da Prompt mettendo nella cartella out/assets le textures che vuoi: "*javac --release 8 -d out Main.java*" //Attenzione: È necessario avere installato il Developer Kit Java
 
 # Prossimi updates
 "*E previsto un aggiornamento che introduce anche l'implementazione della luce e saturazione textures nella foto. Rimanete aggiornati seguendo il profilo!*" DONE!
